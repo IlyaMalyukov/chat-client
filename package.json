@@ -16,7 +16,8 @@
     "pug-plain-loader": "^1.1.0",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "nuxt-resolve-url-loader": "^1.0.4",
