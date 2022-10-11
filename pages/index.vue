@@ -1,10 +1,15 @@
 <template lang="pug">
-  Content
+  .main-page
+    Content
 </template>
 
 <script>
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'IndexPage'
+  name: 'IndexPage',
+  layout () {
+    return 'default'
+  },
 })
+</script>

@@ -8,6 +8,7 @@
 
 .header {
   width: 100%;
+  max-width: 100vw;
   padding: 15px 100px;
   display: flex;
   justify-content: space-between;
