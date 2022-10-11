@@ -1,3 +1,5 @@
+import {resolve} from 'path'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -16,8 +18,15 @@ export default {
     ]
   },
 
+  alias: {
+    '@c': resolve(__dirname, './components'),
+    styles: resolve(__dirname, './styles'),
+    '~styles': resolve(__dirname, './styles'),
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/styles/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -33,6 +42,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

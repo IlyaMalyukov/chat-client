@@ -1,5 +1,5 @@
 <template lang="pug">
-  tutorial
+  Content
 </template>
 
 <script>
