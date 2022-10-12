@@ -27,6 +27,9 @@ export default {
 @import '~styles/mixins.scss';
 
 .header {
+  position: fixed;
+  left: 0;
+  right: 0;
   padding: 15px 100px;
   display: flex;
   justify-content: space-between;

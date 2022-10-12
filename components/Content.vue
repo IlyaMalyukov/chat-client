@@ -1,17 +1,30 @@
 <template lang="pug">
-  .content Hello {{$store.getters['user/user'].name}}
+  .content
+    .messages
+      Message(
+        v-for='message in messages'
+        :message='message'
+      )
+    InputMessage(
+      @send-message='inputMessage'
+    )
 </template>
 
-// <script>
-// export default {
-//   mounted() {
-//     this.$store.dispatch('user/login', {name: 'Илья', password: 'iaa200619'})
-//   }
-// }
-// </script>
+<script>
+export default {
+  data: () => ({
+    messages: []
+  }),
+  methods: {
+    inputMessage(message) {
+      this.messages.push(message)
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .content {
-  color: red;
+  padding-top: 40px;
 }
 </style>
