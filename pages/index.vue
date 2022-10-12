@@ -11,5 +11,15 @@ export default Vue.extend({
   layout () {
     return 'default'
   },
+  mounted() {
+    if (!this.isAuth) {
+      this.$router.push('/auth')
+    }
+  },
+  computed: {
+    isAuth() {
+      return this.$store.getters['user/isAuth']
+    }
+  }
 })
 </script>

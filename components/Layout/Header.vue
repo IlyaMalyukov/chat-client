@@ -1,14 +1,32 @@
 <template lang="pug">
   .header
     .logo Chat
+    button.button(
+      v-if='isAuth'
+      @click='logout'
+    ) Выйти
 </template>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch('user/logout')
+      this.$router.push('/auth')
+    }
+  },
+  computed: {
+    isAuth() {
+      return this.$store.getters['user/isAuth']
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '~styles/mixins.scss';
 
 .header {
-  width: 100%;
-  max-width: 100vw;
   padding: 15px 100px;
   display: flex;
   justify-content: space-between;
@@ -23,5 +41,9 @@
   @include phones-small {
     padding: 15px 15px;
   }
+}
+
+.button {
+  cursor: pointer;
 }
 </style>
