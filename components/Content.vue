@@ -2,8 +2,9 @@
   .content
     .messages(v-if='messages.length')
       Message(
-        v-for='message in messages'
+        v-for='(message, index) in messages'
         :message='message'
+        :key='index'
       )
     .no-messages(v-else)
       .no-messages__text Сообщений нет
