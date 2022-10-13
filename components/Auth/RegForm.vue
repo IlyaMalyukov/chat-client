@@ -7,14 +7,14 @@
           v-model='name'
           placeholder='Имя'
         )
-        .input__error
+        .input__error {{nameError}}
       .input
         input.input__input(
           v-model='password'
           placeholder='Пароль'
           type='password'
         )
-        .input__error
+        .input__error {{passwordError}}
 
       .server-error {{serverError}}
 
@@ -34,35 +34,35 @@ export default {
     nameError: '',
     passwordError: '',
     serverError: '',
-    isLoading: false
+    isLoading: false,
+    hasErrors: false
   }),
   methods: {
     async registration() {
+      this.checkErrors()
+
+      if (this.hasErrors) {
+        return
+      }
+
       this.isLoading = true
 
       await authApi.registration(this.name, this.password)
         .then(() => this.login())
         .catch(err => {
           console.log(err)
-          // this.serverError = err.message
+          this.serverError = 'Пользователь с таким именем уже зарегистрирован'
           this.isLoading = false
           return
         })
     },
     async login() {
-      try {
-
-      } catch (err) {
-        console.log(err)
-        return
-      }
       await this.$store.dispatch('user/login', {
         name: this.name, 
         password: this.password
       })
       .catch(err => {
         console.log(err)
-        // this.serverError = err
         this.isLoading = false
         return
       })
@@ -71,9 +71,32 @@ export default {
       this.clearForm()
       this.$router.replace({ path: '/' })
     },
+    checkErrors() {
+      if (this.name.length < 1) {
+        this.nameError = 'Поле "Имя" не должно быть пустым'
+        this.hasErrors = true
+      }
+
+      if (this.password.length < 1) {
+        this.passwordError = 'Поле "Пароль" не должно быть пустым'
+        this.hasErrors = true
+      }
+
+      if (this.nameError === '' && this.passwordError === '') {
+        this.hasErrors = false
+      }
+    },
     clearForm() {
       this.name = ''
       this.password = ''
+    }
+  },
+  watch: {
+    name() {
+      this.nameError = ''
+    },
+    password() {
+      this.passwordError = ''
     }
   }
 }

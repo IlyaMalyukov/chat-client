@@ -5,6 +5,7 @@
 
 <style lang="scss" scoped>
 .content {
+  padding-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;

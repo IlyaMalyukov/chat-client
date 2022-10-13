@@ -27,6 +27,8 @@ export default {
 <style lang="scss" scoped>
 .tabs {
   display: flex;
+  align-items: center;
+  justify-content: center;
 
   &__item {
     cursor: pointer;
