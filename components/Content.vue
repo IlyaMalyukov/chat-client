@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     inputMessage(message) {
-      // this.messages.push(message)
       this.socket.emit('chat message', message)
     }
   }
