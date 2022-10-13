@@ -26,7 +26,7 @@ export default {
     })
 
     this.socket
-    .on('chat message', (msg, cb) => {
+    .on('chat message', (msg) => {
       this.messages.push(msg)
     })
   },
