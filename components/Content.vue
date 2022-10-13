@@ -18,9 +18,22 @@ export default {
   data: () => ({
     messages: []
   }),
+  mounted() {
+    this.socket = this.$nuxtSocket({
+      name: 'work',
+      channel: '/',
+      reconnection: false
+    })
+
+    this.socket
+    .on('chat message', (msg, cb) => {
+      this.messages.push(msg)
+    })
+  },
   methods: {
     inputMessage(message) {
-      this.messages.push(message)
+      // this.messages.push(message)
+      this.socket.emit('chat message', message)
     }
   }
 }
