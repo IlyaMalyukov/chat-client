@@ -62,4 +62,5 @@ export default {
   build: {
   },
   buildDir: 'dist',
+  target: 'static',
 }
