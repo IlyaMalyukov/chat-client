@@ -3,7 +3,7 @@ import {resolve} from 'path'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   env: {
-    baseUrl: 'http://localhost:5000'
+    baseUrl: 'https://chat-server-bms6x0rdl-ilyamalyukovs-projects.vercel.app'
   },
   head: {
     title: 'client',
@@ -53,7 +53,7 @@ export default {
     sockets: [
       {
         name: 'work',
-        url: 'http://localhost:5000'
+        url: 'https://chat-server-bms6x0rdl-ilyamalyukovs-projects.vercel.app'
       }
     ]
   },
